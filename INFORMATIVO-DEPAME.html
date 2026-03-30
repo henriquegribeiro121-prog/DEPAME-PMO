@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Informativo DEPAME – Matriz de ODS e Transversalidade</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #1a6e3c;
+    --verde-claro: #2d9e5c;
+    --verde-bg: #e8f5ee;
+    --dourado: #c9960c;
+    --dourado-claro: #f0c84a;
+    --creme: #faf7f0;
+    --cinza-escuro: #1c1c1c;
+    --cinza-medio: #555;
+    --branco: #ffffff;
+    --alerta: #e05c1a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: var(--creme);
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--cinza-escuro);
+    line-height: 1.7;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: linear-gradient(135deg, var(--verde) 0%, #0d4a27 60%, #072e17 100%);
+    color: white;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 40px solid rgba(201,150,12,0.18);
+    pointer-events: none;
+  }
+  header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -60px;
+    width: 220px; height: 220px;
+    border-radius: 50%;
+    border: 30px solid rgba(255,255,255,0.06);
+    pointer-events: none;
+  }
+
+  .header-inner {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 48px 36px 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--dourado);
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    border-radius: 2px;
+    margin-bottom: 18px;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1.15;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+
+  header h1 span {
+    color: var(--dourado-claro);
+  }
+
+  .header-sub {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.82);
+    max-width: 560px;
+    font-weight: 300;
+  }
+
+  .logos-row {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+
+  .logo-pill {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 30px;
+    padding: 8px 18px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+  }
+
+  /* ── MAIN ── */
+  main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 36px 60px;
+  }
+
+  /* ── AVISO DESTAQUE ── */
+  .aviso-box {
+    background: linear-gradient(135deg, #fff7ed, #fff3e6);
+    border-left: 5px solid var(--alerta);
+    border-radius: 0 10px 10px 0;
+    padding: 22px 26px;
+    margin: 36px 0 32px;
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    box-shadow: 0 4px 18px rgba(224,92,26,0.10);
+  }
+
+  .aviso-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .aviso-box strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--alerta);
+    font-weight: 700;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .aviso-box p {
+    font-size: 0.97rem;
+    color: #5a3010;
+  }
+
+  /* ── SEÇÃO GERAL ── */
+  section {
+    margin-bottom: 38px;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--verde-claro);
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--verde);
+    margin-bottom: 14px;
+  }
+
+  p { 
+    font-size: 0.98rem; 
+    color: var(--cinza-medio);
+    margin-bottom: 10px;
+  }
+
+  /* ── O QUE É ── */
+  .oque-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 18px;
+  }
+
+  .oque-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px 20px 18px;
+    border: 1px solid #e0ece6;
+    border-top: 4px solid var(--verde-claro);
+  }
+
+  .oque-card .icon { font-size: 1.6rem; margin-bottom: 8px; }
+  .oque-card strong { display: block; font-size: 0.9rem; color: var(--verde); margin-bottom: 4px; font-weight: 700; }
+  .oque-card p { font-size: 0.88rem; color: #666; margin: 0; }
+
+  /* ── INSTRUÇÃO PASSO A PASSO ── */
+  .steps { margin-top: 18px; }
+
+  .step {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px 22px;
+    border: 1px solid #e4ede8;
+    box-shadow: 0 2px 8px rgba(26,110,60,0.05);
+  }
+
+  .step-num {
+    width: 40px; height: 40px;
+    background: var(--verde);
+    color: white;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .step-content strong {
+    display: block;
+    font-size: 0.97rem;
+    color: var(--cinza-escuro);
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  .step-content p { font-size: 0.9rem; color: #666; margin: 0; }
+
+  /* ── DESTAQUE IMPORTANTE ── */
+  .importante-box {
+    background: var(--verde-bg);
+    border: 1.5px solid #a8d5bc;
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-top: 6px;
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+  }
+
+  .importante-box .icon { font-size: 1.5rem; flex-shrink: 0; }
+  .importante-box p { font-size: 0.93rem; color: #1a4a2e; margin: 0; }
+  .importante-box strong { color: var(--verde); }
+
+  /* ── LINK DO FORMULÁRIO ── */
+  .link-box {
+    background: linear-gradient(135deg, var(--verde) 0%, #0d5c2e 100%);
+    border-radius: 12px;
+    padding: 26px 28px;
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  .link-box p {
+    color: rgba(255,255,255,0.85);
+    font-size: 0.9rem;
+    margin-bottom: 14px;
+  }
+
+  .link-btn {
+    display: inline-block;
+    background: var(--dourado);
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    padding: 12px 28px;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+    transition: background 0.2s;
+    word-break: break-all;
+  }
+
+  .link-btn:hover { background: #b07e08; }
+
+  .link-label {
+    display: block;
+    color: rgba(255,255,255,0.6);
+    font-size: 0.78rem;
+    margin-top: 10px;
+    word-break: break-all;
+  }
+
+  /* ── CONTATO / CONVITE DEPAME ── */
+  .convite-box {
+    background: white;
+    border-radius: 12px;
+    border: 2px solid var(--verde-claro);
+    padding: 30px 28px;
+    text-align: center;
+    box-shadow: 0 6px 24px rgba(26,110,60,0.09);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .convite-box::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, var(--verde), var(--dourado), var(--verde-claro));
+  }
+
+  .convite-box .big-icon { font-size: 2.8rem; margin-bottom: 12px; }
+
+  .convite-box h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--verde);
+    margin-bottom: 10px;
+  }
+
+  .convite-box p {
+    font-size: 0.95rem;
+    color: var(--cinza-medio);
+    max-width: 520px;
+    margin: 0 auto 16px;
+  }
+
+  .depame-tag {
+    display: inline-block;
+    background: var(--verde-bg);
+    border: 1px solid #a8d5bc;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 0.88rem;
+    color: var(--verde);
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    border: none;
+    border-top: 1.5px solid #ddeee5;
+    margin: 10px 0 34px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--verde);
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    padding: 24px 36px;
+    font-size: 0.82rem;
+  }
+
+  footer strong { color: white; }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 580px) {
+    header h1 { font-size: 1.9rem; }
+    .header-inner, main { padding-left: 20px; padding-right: 20px; }
+    .oque-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="badge">Comunicado Oficial</div>
+    <h1>Matriz de ODS e<br><span>Transversalidade</span></h1>
+    <p class="header-sub">Orientações para o preenchimento correto do formulário — e como a DEPAME pode te ajudar.</p>
+    <div class="logos-row">
+      <span class="logo-pill">DEPAME</span>
+      <span class="logo-pill">Mandala ODS – CNM</span>
+      <span class="logo-pill">Selo UNICEF</span>
+      <span class="logo-pill">PPA Municipal</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- AVISO PRINCIPAL -->
+  <div class="aviso-box">
+    <div class="aviso-icon">⚠️</div>
+    <div>
+      <strong>Atenção, Secretários(as)!</strong>
+      <p>
+        O formulário deve ser preenchido <strong>uma vez para cada ação ou projeto</strong> que sua secretaria já desenvolve ou planeja desenvolver. 
+        Se a sua secretaria tem 5 ações, o formulário deve ser enviado <strong>5 vezes</strong> — uma por ação.
+        <br><br>
+        Percebemos que muitas secretarias estão enviando apenas <strong>uma única resposta</strong> com uma única ação. 
+        Por favor, revise e preencha corretamente para garantir a transparência do diagnóstico municipal.
+      </p>
+    </div>
+  </div>
+
+  <!-- O QUE É O FORMULÁRIO -->
+  <section>
+    <div class="section-label">Entenda</div>
+    <h2>O que é este formulário?</h2>
+    <p>Este instrumento realiza o levantamento técnico de indicadores para a <strong>territorialização dos ODS em nível municipal</strong>, alinhando as ações do Plano Plurianual (PPA) aos indicadores da Mandala ODS (CNM) e aos compromissos do Selo UNICEF.</p>
+
+    <div class="oque-grid">
+      <div class="oque-card">
+        <div class="icon">📋</div>
+        <strong>Ações já em andamento</strong>
+        <p>Inclua tudo que sua secretaria já realiza — programas, projetos, serviços e iniciativas ativas.</p>
+      </div>
+      <div class="oque-card">
+        <div class="icon">🔭</div>
+        <strong>Ações planejadas</strong>
+        <p>Inclua também o que está previsto para ser executado ao longo da gestão, mesmo que ainda não iniciado.</p>
+      </div>
+      <div class="oque-card">
+        <div class="icon">🔁</div>
+        <strong>Um envio por ação</strong>
+        <p>Cada ação ou projeto deve gerar um preenchimento individual e separado do formulário.</p>
+      </div>
+      <div class="oque-card">
+        <div class="icon">🌱</div>
+        <strong>Alinhamento aos ODS</strong>
+        <p>As informações serão cruzadas com os Objetivos de Desenvolvimento Sustentável da Agenda 2030.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- PASSO A PASSO -->
+  <section>
+    <div class="section-label">Como preencher</div>
+    <h2>Passo a passo</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <strong>Liste todas as ações da sua secretaria</strong>
+          <p>Antes de acessar o formulário, utilize o <strong>Documento Auxiliar (Rascunho)</strong> entregue pela DEPAME para organizar todas as ações que sua secretaria desenvolve e planeja desenvolver. Isso facilitará o preenchimento.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <strong>Preencha o campo de controle</strong>
+          <p>No início do formulário, informe <em>"Quantos projetos e/ou ações sua secretaria desenvolve e pretende desenvolver?"</em> — este número será usado apenas como controle.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <strong>Envie uma resposta para cada ação</strong>
+          <p>Acesse o link, preencha os dados de <strong>uma ação</strong> e envie. Em seguida, acesse o link novamente e preencha a próxima ação. Repita até cobrir todas as ações da sua secretaria.</p>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <strong>Opção: envio consolidado (para muitas ações)</strong>
+          <p>Se sua secretaria possui um volume elevado de ações, é possível enviar um <strong>arquivo consolidado</strong> ao final do formulário, conforme as orientações específicas apresentadas na última seção do formulário.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="importante-box">
+      <div class="icon">💡</div>
+      <p><strong>Importante:</strong> O nome, a foto e o e-mail associados à sua Conta do Google serão registrados automaticamente ao enviar o formulário. Certifique-se de estar logado com a conta institucional correta.</p>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- LINK DO FORMULÁRIO -->
+  <section>
+    <div class="section-label">Acesso</div>
+    <h2>Link do Formulário</h2>
+    <p>Clique no botão abaixo para acessar o formulário oficial. Lembre-se: <strong>um envio por ação ou projeto.</strong></p>
+
+    <div class="link-box">
+      <p>Formulário oficial — Matriz de ODS e Transversalidade</p>
+      <a class="link-btn" href="https://docs.google.com/forms/d/e/1FAIpQLScq5FNln8B-Z8n0m6pR3kxI1iFFTIv2BZE36bBPr2QKKJXyfg/viewform?usp=preview" target="_blank">
+        🔗 Acessar o Formulário
+      </a>
+      <span class="link-label">https://docs.google.com/forms/d/e/1FAIpQLScq5FNln8B-Z8n0m6pR3kxI1iFFTIv2BZE36bBPr2QKKJXyfg/viewform</span>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- CONVITE DEPAME -->
+  <section>
+    <div class="section-label">Suporte</div>
+    <h2>A DEPAME está aqui para ajudar</h2>
+    <p>Sabemos que o preenchimento pode gerar dúvidas. Por isso, a equipe da DEPAME está à disposição para orientar cada secretaria de forma individualizada.</p>
+
+    <div class="convite-box">
+      <div class="big-icon">🤝</div>
+      <h3>Venha até a Prefeitura!</h3>
+      <p>
+        Cada secretário(a) pode <strong>encaminhar a pessoa responsável pelo preenchimento</strong> do formulário até a Prefeitura para receber orientações personalizadas, tirar dúvidas e garantir que todas as ações sejam registradas corretamente.
+      </p>
+      <p>
+        Nossa equipe técnica acompanhará você no preenchimento, esclarecerá as dúvidas sobre os ODS e garantirá que nenhuma ação fique de fora do diagnóstico municipal.
+      </p>
+      <div class="depame-tag">
+        📍 DEPAME — Diretoria Executiva de Planejamento e Monitoramento de Ações Estratégicas da Amazônia
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>DEPAME</strong> — Diretoria Executiva de Planejamento e Monitoramento de Ações Estratégicas da Amazônia<br>
+  Prefeitura Municipal · Instrumento de apoio ao preenchimento da Matriz de ODS e Transversalidade
+</footer>
+
+</body>
+</html>
